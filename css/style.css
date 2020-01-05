@@ -6,3 +6,218 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* universal selector *  */
+* {
+    margin: 0;
+    padding: 0;
+    /*  change box model so box border and padding is no longer added to the total width or height of the box   */
+    box-sizing: border-box;  
+}
+
+body {   /* always put font for webpage here not in universal selector */
+    font-family: "Lato", sans-serif;  /*  Lato is a google font - check index.html for google api */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;  /*  1.7 times the line height */
+    color: #777;
+    padding: 30px;  /*  to apply to entire webpage    */
+}
+
+.header {
+    height: 95vh; /*  95% of viewport height */
+    /* positioning first gradient then image 
+       parameters are direction gradient should go and colours 
+       direction to right bottom 
+       to change from hex colour to rgb values hover over and use small popup to change values
+       0.8 is the opacity
+       url path .. goes one level up 
+    */
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.80), rgb(40, 180, 133, 0.8)), 
+                      url(../img/hero.jpg); 
+    background-size: cover;  /* cover will fit to the width of the viewport area */
+    background-position: top; /* top of image stays at top of container */
+    position: relative;
+    /*  to make a triangle -  clip-path: polygon(50% 0, 100% 100%, 0 100%)   */
+    /* clip-path: polygon(0 0, 100% y, 100% 200px, 0 100%) /* 100% of image width */
+    /* for other shapes - see website - bennettfeely.com/clippy/  */
+    /*  using viewport height allows it to keep the shape when the webpage size is changed dynamically*/
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);  
+}
+
+.logo-box {
+    position: absolute;
+    /*  where does the measurement 40px start - 
+        that reference is the parent element that has its position set to relative - here its header
+
+    */
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px; /*  specify the height and the browser figures out the width  */
+}
+
+/*  animation can be applied to multiple items on web page
+.logo:hover {
+    animation: moveInRight 1s ease-out;
+}
+*/
+
+.text-box {
+    position: absolute;
+    top: 40%;  /*  In relation to the parent element  */
+    left: 50%;  /*   In relation to the parent element  */
+    /* to place the center of this box in the center of the background - horizontally and vertically in center */
+    transform: translate(-50%, -50%);  /* In relation to the element itself */
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    /*  when the animation occurs for the heading there is a slight shake where it then moves to the top  
+        this is to fix that
+    */
+    backface-visibility: hidden;
+    /* to add white space between the heading and the button */
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    /* as this is a span element which is by default inline - we change the display to block */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; /* start fast and finish slower */
+
+    /*
+    animation-delay: 3s;  delay of 3s before starting
+    animation-iteration-count: 3; play animation 3 times
+    */
+}
+
+.heading-primary-sub {
+    /* as this is a span element which is by default inline - we change the display to block */
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px); /* start from 100px left of center  */
+        /* transform: translate(-100px) rotate(-50deg); other possible animations */
+    }
+
+    /*
+    60%  {
+        transform: rotate(120deg);
+    }
+    */
+
+    80% {
+        transform: translate(10px); /*  10px from center to right  */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*  remain the same, don't change position from center  */
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px); /* start from 100px right of center  */
+    }
+
+    80% {
+        transform: translate(-10px); /*  10px from center to left  */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*  remain the same, don't change position from center  */
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* start from 100px right of center  */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*  remain the same, don't change position from center  */
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px; /* top and bottom 15px left and right 40px */
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;  /*  basic way to animate - other than @keyframes   */
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px); /* to go up use negative value */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* x y blur color .2 opacity to make it subtle */
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    /* 
+        to make the shadow look smaller, to give the impression that the 
+        button is closer to the page and further away from the user 
+    */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* x y blur color */
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+
+}
+
+.btn::after {
+    content: "";  /*  always necessary to specify this property */
+    display: inline-block; /* this is inline-block as the button was specified the same */
+    height: 100%; /* of the button */
+    width: 100%;  /* of the button */
+    border-radius: 100px;
+    position: absolute;
+    top: 0;  /* reference to button not header */
+    left: 0; /* reference to button not header */
+    z-index: -1;  /* put behind the button */
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6); /* to increase an element */
+    opacity: 0;  /* sets it to invisible */
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;  /* animation name duration timing-function delay */
+    /* this will apply the 0% style from the moveInBottom animation before the animation starts */
+    animation-fill-mode: backwards;  
+}
