@@ -8,20 +8,27 @@ Dark green: #28b485
 */
 
 /* universal selector *  */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     /*  change box model so box border and padding is no longer added to the total width or height of the box   */
-    box-sizing: border-box;  
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; /* 10 divide by 16 - in percentage */
 }
 
 body {   /* always put font for webpage here not in universal selector */
     font-family: "Lato", sans-serif;  /*  Lato is a google font - check index.html for google api */
     font-weight: 400;
-    font-size: 16px;
+    /*font-size: 16px;*/
     line-height: 1.7;  /*  1.7 times the line height */
     color: #777;
-    padding: 30px;  /*  to apply to entire webpage    */
+    padding: 3rem;  /*  to apply to entire webpage   - 30px becomes 3 rem */
+    box-sizing: border-box;
 }
 
 .header {
@@ -51,12 +58,12 @@ body {   /* always put font for webpage here not in universal selector */
         that reference is the parent element that has its position set to relative - here its header
 
     */
-    top: 40px;
-    left: 40px;
+    top: 40px; /* 40px becomes 4rem */
+    left: 40px; /* 40px becomes 4rem */
 }
 
 .logo {
-    height: 35px; /*  specify the height and the browser figures out the width  */
+    height: 3.5rem; /*  specify the height and the browser figures out the width - 35px becomes 3.5rem */
 }
 
 /*  animation can be applied to multiple items on web page
@@ -83,15 +90,15 @@ body {   /* always put font for webpage here not in universal selector */
     */
     backface-visibility: hidden;
     /* to add white space between the heading and the button */
-    margin-bottom: 60px;
+    margin-bottom: 6rem; /* 60px becomes 6rem */
 }
 
 .heading-primary-main {
     /* as this is a span element which is by default inline - we change the display to block */
     display: block;
-    font-size: 60px;
+    font-size: 6rem; /* 60px becomes 6rem */
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem; /* 35px becomes 3.5rem */
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -106,16 +113,16 @@ body {   /* always put font for webpage here not in universal selector */
 .heading-primary-sub {
     /* as this is a span element which is by default inline - we change the display to block */
     display: block;
-    font-size: 20px;
+    font-size: 2rem; /* 20px becomes 2rem */
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem; /* 17.4px becomes 1.75rem */
     animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px); /* start from 100px left of center  */
+        transform: translateX(-10rem); /* start from 100px left of center - -100px becomes -10 rem */
         /* transform: translate(-100px) rotate(-50deg); other possible animations */
     }
 
@@ -126,7 +133,7 @@ body {   /* always put font for webpage here not in universal selector */
     */
 
     80% {
-        transform: translate(10px); /*  10px from center to right  */
+        transform: translate(10px); /*  10px from center to right - 10px becomes 1 rem */
     }
 
     100% {
@@ -138,11 +145,11 @@ body {   /* always put font for webpage here not in universal selector */
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px); /* start from 100px right of center  */
+        transform: translateX(10rem); /* start from 100px right of center - 100px becomes 10 rem */
     }
 
     80% {
-        transform: translate(-10px); /*  10px from center to left  */
+        transform: translate(-1rem); /*  10px from center to left -  -10px becomes -1 rem */
     }
 
     100% {
@@ -154,7 +161,7 @@ body {   /* always put font for webpage here not in universal selector */
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px); /* start from 100px right of center  */
+        transform: translateY(3rem); /* start from 100px right of center - 30px becomes 3rem */
     }
 
     100% {
@@ -167,16 +174,17 @@ body {   /* always put font for webpage here not in universal selector */
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px; /* top and bottom 15px left and right 40px */
+    padding: 1.5rem 4rem; /* top and bottom 15px left and right 40px - 15px becomes 1.5rem and 40px becomes 4rem */
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem; /* 100px becomes 10rem */
     transition: all .2s;  /*  basic way to animate - other than @keyframes   */
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     transform: translateY(-3px); /* to go up use negative value */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* x y blur color .2 opacity to make it subtle */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* x y blur color .2 opacity to make it subtle - 10px becomes 1rem, 20px becomes 2rem */
 }
 
 .btn:active {
@@ -185,7 +193,7 @@ body {   /* always put font for webpage here not in universal selector */
         to make the shadow look smaller, to give the impression that the 
         button is closer to the page and further away from the user 
     */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* x y blur color */
+    box-shadow: 0 .5 1rem rgba(0, 0, 0, 0.2); /* x y blur color - 5px becomes .5rem, 10px becomes 1rem */
 }
 
 .btn-white {
@@ -199,7 +207,7 @@ body {   /* always put font for webpage here not in universal selector */
     display: inline-block; /* this is inline-block as the button was specified the same */
     height: 100%; /* of the button */
     width: 100%;  /* of the button */
-    border-radius: 100px;
+    border-radius: 10rem; /* 100px becomes 10rem */
     position: absolute;
     top: 0;  /* reference to button not header */
     left: 0; /* reference to button not header */
