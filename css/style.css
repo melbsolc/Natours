@@ -52,7 +52,7 @@ body {   /* always put font for webpage here not in universal selector */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);  
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     /*  where does the measurement 40px start - 
         that reference is the parent element that has its position set to relative - here its header
@@ -62,7 +62,7 @@ body {   /* always put font for webpage here not in universal selector */
     left: 40px; /* 40px becomes 4rem */
 }
 
-.logo {
+.header__logo {
     height: 3.5rem; /*  specify the height and the browser figures out the width - 35px becomes 3.5rem */
 }
 
@@ -72,7 +72,7 @@ body {   /* always put font for webpage here not in universal selector */
 }
 */
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;  /*  In relation to the parent element  */
     left: 50%;  /*   In relation to the parent element  */
@@ -93,7 +93,7 @@ body {   /* always put font for webpage here not in universal selector */
     margin-bottom: 6rem; /* 60px becomes 6rem */
 }
 
-.heading-primary-main {
+.heading-primary--main {
     /* as this is a span element which is by default inline - we change the display to block */
     display: block;
     font-size: 6rem; /* 60px becomes 6rem */
@@ -110,7 +110,7 @@ body {   /* always put font for webpage here not in universal selector */
     */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     /* as this is a span element which is by default inline - we change the display to block */
     display: block;
     font-size: 2rem; /* 20px becomes 2rem */
@@ -196,7 +196,7 @@ body {   /* always put font for webpage here not in universal selector */
     box-shadow: 0 .5 1rem rgba(0, 0, 0, 0.2); /* x y blur color - 5px becomes .5rem, 10px becomes 1rem */
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 
@@ -215,7 +215,7 @@ body {   /* always put font for webpage here not in universal selector */
     transition: all .4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -224,7 +224,7 @@ body {   /* always put font for webpage here not in universal selector */
     opacity: 0;  /* sets it to invisible */
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out .75s;  /* animation name duration timing-function delay */
     /* this will apply the 0% style from the moveInBottom animation before the animation starts */
     animation-fill-mode: backwards;  
