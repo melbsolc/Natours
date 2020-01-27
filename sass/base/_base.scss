@@ -1,0 +1,18 @@
+// universal selector *  
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    //change box model so box border and padding is no longer added to the total width or height of the box   
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; // 10 divide by 16 - in percentage 
+}
+
+body {   // always put font for webpage here not in universal selector 
+    box-sizing: border-box;
+}

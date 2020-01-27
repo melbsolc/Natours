@@ -1,0 +1,44 @@
+
+body {   // always put font for webpage here not in universal selector 
+    font-family: "Lato", sans-serif;  // Lato is a google font - check index.html for google api 
+    font-weight: 400;
+    // font-size: 16px;
+    line-height: 1.7;  // 1.7 times the line height 
+    color: $color-grey-dark;
+    padding: 3rem;  // to apply to entire webpage   - 30px becomes 3 rem 
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    // when the animation occurs for the heading there is a slight shake where it then moves to the top  
+    // this is to fix that
+    backface-visibility: hidden;
+    // to add white space between the heading and the button 
+    margin-bottom: 6rem; // 60px becomes 6rem 
+
+    &--main {
+        // as this is a span element which is by default inline - we change the display to block 
+        display: block;
+        font-size: 6rem; // 60px becomes 6rem 
+        font-weight: 400;
+        letter-spacing: 3.5rem; // 35px becomes 3.5rem 
+    
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out; // start fast and finish slower 
+    
+        // animation-delay: 3s;  delay of 3s before starting
+        // animation-iteration-count: 3; play animation 3 times
+    }
+    
+    &--sub {
+        // as this is a span element which is by default inline - we change the display to block 
+        display: block;
+        font-size: 2rem; // 20px becomes 2rem 
+        font-weight: 700;
+        letter-spacing: 1.75rem; // 17.4px becomes 1.75rem 
+        animation: moveInRight 1s ease-out;
+    }
+}

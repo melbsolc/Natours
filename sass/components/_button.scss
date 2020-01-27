@@ -1,0 +1,61 @@
+.btn {
+
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem; // top and bottom 15px left and right 40px - 15px becomes 1.5rem and 40px becomes 4rem 
+        display: inline-block;
+        border-radius: 10rem; // 100px becomes 10rem 
+        transition: all .2s;  //  basic way to animate - other than @keyframes   
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-3px); // to go up use negative value 
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2); // x y blur color .2 opacity to make it subtle - 10px becomes 1rem, 20px becomes 2rem 
+    
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6); // to increase an element 
+            opacity: 0;  // sets it to invisible 
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        
+            // to make the shadow look smaller, to give the impression that the 
+            // button is closer to the page and further away from the user 
+        
+        box-shadow: 0 .5 1rem rgba($color-black, 0.2); // x y blur color - 5px becomes .5rem, 10px becomes 1rem 
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after {
+        content: "";  //  always necessary to specify this property
+        display: inline-block; // this is inline-block as the button was specified the same 
+        height: 100%; // of the button 
+        width: 100%;  // of the button 
+        border-radius: 10rem; // 100px becomes 10rem 
+        position: absolute;
+        top: 0;  // reference to button not header 
+        left: 0; // reference to button not header 
+        z-index: -1;  // put behind the button 
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;  // animation name duration timing-function delay 
+        // this will apply the 0% style from the moveInBottom animation before the animation starts 
+        animation-fill-mode: backwards;  
+    }
+}

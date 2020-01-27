@@ -1,0 +1,50 @@
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem); // start from 100px left of center - -100px becomes -10 rem 
+        // transform: translate(-100px) rotate(-50deg); other possible animations 
+    }
+
+    
+    //60%  {
+        // transform: rotate(120deg);
+    // }
+    
+
+    80% {
+        transform: translate(10px); // 10px from center to right - 10px becomes 1 rem 
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); // remain the same, don't change position from center 
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem); // start from 100px right of center - 100px becomes 10 rem 
+    }
+
+    80% {
+        transform: translate(-1rem); //  10px from center to left -  -10px becomes -1 rem 
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); //  remain the same, don't change position from center  
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem); // start from 100px right of center - 30px becomes 3rem 
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); //  remain the same, don't change position from center  
+    }
+}

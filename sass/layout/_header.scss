@@ -1,0 +1,50 @@
+.header {
+    height: 95vh; //  95% of viewport height 
+    // positioning first gradient then image 
+    //  parameters are direction gradient should go and colours 
+    //   direction to right bottom 
+    //   to change from hex colour to rgb values hover over and use small popup to change values
+    //  0.8 is the opacity
+    //   url path .. goes one level up 
+    
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.80), 
+        rgba($color-primary-dark, 0.8)), 
+        url(../img/hero.jpg); 
+    background-size: cover;  // cover will fit to the width of the viewport area 
+    background-position: top; // top of image stays at top of container 
+    position: relative;
+    // to make a triangle -  clip-path: polygon(50% 0, 100% 100%, 0 100%)   
+    // clip-path: polygon(0 0, 100% y, 100% 200px, 0 100%) /* 100% of image width 
+    // for other shapes - see website - bennettfeely.com/clippy/  
+    // using viewport height allows it to keep the shape when the webpage size is changed dynamically
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);  
+
+    &__logo-box {
+        position: absolute;
+        // where does the measurement 40px start - 
+        // that reference is the parent element that has its position set to relative - here its header
+        top: 40px; // 40px becomes 4rem 
+        left: 40px; // 40px becomes 4rem 
+    }
+
+    &__logo {
+        height: 3.5rem; //  specify the height and the browser figures out the width - 35px becomes 3.5rem 
+    }
+    
+    // animation can be applied to multiple items on web page
+    // .logo:hover {
+    //   animation: moveInRight 1s ease-out;
+    // }
+    
+    &__text-box {
+        position: absolute;
+        top: 40%;  //  In relation to the parent element  
+        left: 50%;  //   In relation to the parent element  
+        // to place the center of this box in the center of the background - horizontally and vertically in center 
+        transform: translate(-50%, -50%);  // In relation to the element itself 
+        text-align: center;
+    }
+}
+
